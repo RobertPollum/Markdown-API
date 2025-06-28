@@ -1,3 +1,5 @@
+package org.robert.pollum.controller;
+
 import java.util.UUID;
 
 import jakarta.ws.rs.GET;
