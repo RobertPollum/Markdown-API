@@ -1,10 +1,9 @@
 package org.robert.pollum.entity;
 
-import java.util.UUID;
-
-import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -12,8 +11,9 @@ import lombok.Data;
 @Data
 @Table(name="markdown_article")
 public class MarkdownArticle extends PanacheEntityBase {
+	@Id
 	@Column
-	UUID id;
+	Integer id;
 	
 	@Column
 	String title;
@@ -23,8 +23,5 @@ public class MarkdownArticle extends PanacheEntityBase {
 	
 	@Column 
 	String author;
-	
-	public static MarkdownArticle getById(UUID id) {
-		return MarkdownArticle.find("id = ?", id);
-	}
+
 }
