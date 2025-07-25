@@ -16,7 +16,7 @@ import jakarta.ws.rs.PathParam;
  * REST class for handling API with markdown article actions. 
  */
 @Path("markdown")
-public class MarkdownController {
+public class MarkdownController implements MarkdownControllerInterface {
 	
 	@Inject
 	MarkdownService markdownService;
