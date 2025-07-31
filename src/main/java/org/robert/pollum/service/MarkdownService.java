@@ -41,6 +41,5 @@ public class MarkdownService {
 
 	private void validateMarkdownArticle(MarkdownArticle article) {
 		//TODO Implement validation logic in this funciton or do some of this through hibernate;
-		return;
 	}
 }
