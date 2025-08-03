@@ -45,18 +45,18 @@
 		    <groupId>io.quarkus</groupId>
 		    <artifactId>quarkus-hibernate-orm-panache</artifactId>
 		</dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-reactive-panache</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-search-orm-elasticsearch</artifactId>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-reactive-rest-data-panache</artifactId>
-        </dependency>
+        </dependency> -->
 		<!-- JDBC driver dependencies -->
 		<!-- <dependency>
 		    <groupId>io.quarkus</groupId>
@@ -87,10 +87,10 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-vertx-graphql</artifactId>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-reactive-pg-client</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>io.quarkiverse.hibernatetypes</groupId>
             <artifactId>quarkus-hibernate-types</artifactId>
