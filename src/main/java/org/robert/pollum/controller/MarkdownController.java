@@ -17,25 +17,31 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
+import org.jboss.logging.Logger;
+
+
 /**
  * REST class for handling API with markdown article actions. 
  */
 @Path("markdown")
 public class MarkdownController implements MarkdownControllerInterface {
 	
+	private static final Logger logger = Logger.getLogger(MarkdownController.class);
+
 	@Inject
 	MarkdownService markdownService;
 
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") UUID id) {
+	public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") Integer id) {
 		return markdownService.getMarkdownArticle(id);
 	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public MarkdownArticle createMarkdownArticle(@RequestBody MarkdownArticle article) {
+		logger.debug(article);
 		return markdownService.createMarkdownArticle(article);
 	}
 
@@ -47,7 +53,7 @@ public class MarkdownController implements MarkdownControllerInterface {
 
 	@DELETE
 	@Path("/{id}")
-	public Boolean deleteMarkdownArticle(@PathParam("id") UUID id) {
+	public Boolean deleteMarkdownArticle(@PathParam("id") Integer id) {
 		return markdownService.deleMarkdownArticle(id);
 	}
 	

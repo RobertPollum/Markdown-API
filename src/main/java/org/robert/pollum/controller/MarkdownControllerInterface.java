@@ -34,7 +34,7 @@ public interface MarkdownControllerInterface {
                 schema = @Schema(implementation = MarkdownArticle.class)
         )
     })
-    public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") UUID id);
+    public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") Integer id);
 
     @APIResponse(
         responseCode = "200",
@@ -67,5 +67,5 @@ public interface MarkdownControllerInterface {
                 schema = @Schema(implementation = Boolean.class)
         )
     })
-    public Boolean deleteMarkdownArticle(@PathParam("id") UUID id);
+    public Boolean deleteMarkdownArticle(@PathParam("id") Integer id);
 }

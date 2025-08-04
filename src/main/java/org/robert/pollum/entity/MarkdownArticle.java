@@ -18,8 +18,8 @@ public class MarkdownArticle extends PanacheEntityBase {
 	
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id = null;
 	
 	@Column
 	private String title;
@@ -27,6 +27,6 @@ public class MarkdownArticle extends PanacheEntityBase {
 	@Column
 	private String markdown;
 	
-	@Column 
-	private UUID author;
+	@Column(name="author_id")
+	private Integer authorId = null;
 }

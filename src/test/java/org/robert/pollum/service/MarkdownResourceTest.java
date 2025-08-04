@@ -2,6 +2,8 @@ package org.robert.pollum.service;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;
@@ -10,7 +12,6 @@ import static io.restassured.RestAssured.given;
 
 @QuarkusTest
 class MarkdownResourceTest {
-
 
     @Test
     void testCreateEndpoint() {
@@ -27,6 +28,8 @@ class MarkdownResourceTest {
                 "author": null
             }
             """;
+        
+        // String.format(, UUID.randomUUID().toString(), UUID.randomUUID().toString());
 
       given().body(parameters).header("Content-Type", "application/json")
           .when().post("/markdown"

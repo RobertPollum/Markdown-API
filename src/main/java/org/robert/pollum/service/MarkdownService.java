@@ -1,7 +1,6 @@
 package org.robert.pollum.service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import org.robert.pollum.entity.MarkdownArticle;
 
@@ -12,7 +11,7 @@ import jakarta.ws.rs.NotFoundException;
 @ApplicationScoped
 public class MarkdownService {
 	
-	public MarkdownArticle getMarkdownArticle(UUID id) {
+	public MarkdownArticle getMarkdownArticle(Integer id) {
 		Optional<MarkdownArticle> optional = MarkdownArticle.findByIdOptional(id.toString());
 		optional.orElseThrow(() -> new NotFoundException(String.format("No Markdown Article found with ID: %s", id.toString())));
 		return optional.get();
@@ -38,7 +37,7 @@ public class MarkdownService {
 	}
 
 	@Transactional
-	public Boolean deleMarkdownArticle(UUID id) {
+	public Boolean deleMarkdownArticle(Integer id) {
 		if(MarkdownArticle.findByIdOptional(id).isEmpty()) {
 			throw new NotFoundException(String.format("No Markdown Article found with id: %d", id));
 		} 
