@@ -1,7 +1,5 @@
 package org.robert.pollum.controller;
 
-import java.util.UUID;
-
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;

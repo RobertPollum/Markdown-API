@@ -1,7 +1,5 @@
 package org.robert.pollum.controller;
 
-import java.util.UUID;
-
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.robert.pollum.entity.MarkdownArticle;
 import org.robert.pollum.service.MarkdownService;
@@ -23,7 +21,7 @@ import org.jboss.logging.Logger;
 /**
  * REST class for handling API with markdown article actions. 
  */
-@Path("markdown")
+@Path("/markdown")
 public class MarkdownController implements MarkdownControllerInterface {
 	
 	private static final Logger logger = Logger.getLogger(MarkdownController.class);

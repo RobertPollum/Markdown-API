@@ -1,7 +1,5 @@
 package org.robert.pollum.entity;
 
-import java.util.UUID;
-
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
