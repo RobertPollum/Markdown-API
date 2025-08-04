@@ -1,5 +1,7 @@
 package org.robert.pollum.entity;
 
+import java.util.UUID;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,15 +15,14 @@ import lombok.Data;
 public class MarkdownArticle extends PanacheEntityBase {
 	@Id
 	@Column
-	Integer id;
+	private UUID id;
 	
 	@Column
-	String title;
+	private String title;
 	
 	@Column
-	String markdown;
+	private String markdown;
 	
 	@Column 
-	String author;
-
+	private UUID author;
 }
