@@ -1,5 +1,7 @@
 package org.robert.pollum.controller;
 
+import java.util.UUID;
+
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.robert.pollum.entity.MarkdownArticle;
 import org.robert.pollum.service.MarkdownService;
@@ -23,7 +25,7 @@ public class MarkdownController implements MarkdownControllerInterface {
 
 	@GET
 	@Path("/{id}")
-	public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") Integer id) {
+	public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") UUID id) {
 		return markdownService.getMarkdownArticle(id);
 	}
 
@@ -40,7 +42,7 @@ public class MarkdownController implements MarkdownControllerInterface {
 
 	@DELETE
 	@Path("/{id}")
-	public Boolean deleteMarkdownArticle(@PathParam("id") Integer id) {
+	public Boolean deleteMarkdownArticle(@PathParam("id") UUID id) {
 		return markdownService.deleMarkdownArticle(id);
 	}
 	
