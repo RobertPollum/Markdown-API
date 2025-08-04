@@ -1,5 +1,7 @@
 package org.robert.pollum.controller;
 
+import java.util.UUID;
+
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
@@ -32,7 +34,7 @@ public interface MarkdownControllerInterface {
                 schema = @Schema(implementation = MarkdownArticle.class)
         )
     })
-    public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") Integer id);
+    public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") UUID id);
 
     @APIResponse(
         responseCode = "200",
@@ -65,5 +67,5 @@ public interface MarkdownControllerInterface {
                 schema = @Schema(implementation = Boolean.class)
         )
     })
-    public Boolean deleteMarkdownArticle(@PathParam("id") Integer id);
+    public Boolean deleteMarkdownArticle(@PathParam("id") UUID id);
 }

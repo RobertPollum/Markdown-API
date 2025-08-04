@@ -5,6 +5,8 @@ import java.util.UUID;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -13,8 +15,10 @@ import lombok.Data;
 @Data
 @Table(name="markdown_article")
 public class MarkdownArticle extends PanacheEntityBase {
+	
 	@Id
 	@Column
+	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
 	@Column

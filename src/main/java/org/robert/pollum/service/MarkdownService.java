@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.robert.pollum.entity.MarkdownArticle;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 
 @ApplicationScoped
@@ -17,6 +18,7 @@ public class MarkdownService {
 		return optional.get();
 	}
 
+	@Transactional
 	public MarkdownArticle createMarkdownArticle(MarkdownArticle article) {
 		if(article.getId() != null) {
 			throw new IllegalArgumentException("No ID can be provided when creating a new Markdown Article");
@@ -26,6 +28,7 @@ public class MarkdownService {
 		return getMarkdownArticle(article.getId());
 	}
 
+	@Transactional
 	public MarkdownArticle updateMarkdownArticle(MarkdownArticle article) {
 		//TODO try with resources on updating an existing markdown article if it exists
 		// if it doesn't throw a NotFound exception. 
@@ -34,6 +37,7 @@ public class MarkdownService {
 		return new MarkdownArticle();
 	}
 
+	@Transactional
 	public Boolean deleMarkdownArticle(UUID id) {
 		if(MarkdownArticle.findByIdOptional(id).isEmpty()) {
 			throw new NotFoundException(String.format("No Markdown Article found with id: %d", id));

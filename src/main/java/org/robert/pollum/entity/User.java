@@ -2,6 +2,7 @@ package org.robert.pollum.entity;
 
 import java.util.UUID;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,7 +14,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="user")
-public class User {
+public class User extends PanacheEntityBase {
 
     @Id
     @Column
