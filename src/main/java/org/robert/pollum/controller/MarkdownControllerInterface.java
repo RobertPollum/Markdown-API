@@ -4,6 +4,7 @@ import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -23,15 +24,27 @@ import jakarta.ws.rs.PathParam;
 public interface MarkdownControllerInterface {
 
     
-    @APIResponse(
-        responseCode = "200",
-        description = "Markdown Article object",
-        content = {
-            @Content( 
-                mediaType = "application/json", 
-                schema = @Schema(implementation = MarkdownArticle.class)
-        )
-    })
+    @APIResponses(
+        value = {
+            @APIResponse(
+                responseCode = "200",
+                description = "Markdown Article object",
+                content = {
+                    @Content( 
+                        mediaType = "application/json", 
+                        schema = @Schema(implementation = MarkdownArticle.class)
+                    )
+            }),
+            @APIResponse(
+                responseCode = "404",
+                description = "Markdown Article not found",
+                content = {
+                    @Content(mediaType = "text/plain")
+                }
+            )
+        }
+    )
+    
     public MarkdownArticle getExistingMarkdownArticle(@PathParam("id") Integer id);
 
     @APIResponse(
@@ -56,14 +69,26 @@ public interface MarkdownControllerInterface {
     })
     public MarkdownArticle upMarkdownArticle(@RequestBody MarkdownArticle article);
 
-    @APIResponse(
-        responseCode = "202",
-        description = "",
-        content = {
-            @Content( 
-                mediaType = "application/json", 
-                schema = @Schema(implementation = Boolean.class)
-        )
-    })
+    @APIResponses(
+        value = {
+            @APIResponse(
+                responseCode = "202",
+                description = "",
+                content = {
+                    @Content( 
+                        mediaType = "text/plain", 
+                        schema = @Schema(implementation = Boolean.class)
+                )
+            }),
+            @APIResponse(
+                responseCode = "404",
+                description = "Markdown Article not found",
+                content = {
+                    @Content(mediaType = "text/plain")
+                }
+            )
+        }
+    )
+    
     public Boolean deleteMarkdownArticle(@PathParam("id") Integer id);
 }
