@@ -26,7 +26,7 @@ class MarkdownResourceTest {
           .when().post("/markdown"
           ).then()
           .statusCode(200)
-          .body(notNullValue());
+          .body("id", notNullValue());
     }
 
 }
